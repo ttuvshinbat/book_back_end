@@ -2,7 +2,11 @@ const { body, validationResult } = require("express-validator");
 const createBook = () => {
   return [
     body("name").notEmpty().isString().withMessage("string and notempty"),
-    body("isbn").notEmpty().isNumeric().withMessage("isbn number and notempty"),
+    body("isbn")
+      .notEmpty()
+      .isNumeric()
+      .isLength({ min: 10, max: 10 })
+      .withMessage("isbn number and notempty"),
     body("author")
       .isString()
       .notEmpty()
