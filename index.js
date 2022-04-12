@@ -17,7 +17,7 @@ app.post("/", function requestHandle(req, res) {
   );
   res.header("Content-Type", "application/json");
 });
-app.use("/api", apiRoutes);
+app.use("/books/api", apiRoutes);
 
 app.all("*", (req, res, next) => {
   res.status(404).json({
